@@ -310,9 +310,64 @@
     <p>東海3県（愛知・岐阜・三重）を中心に、静岡（掛川）、滋賀（栗東）、大阪（貝塚）、奈良（いこま）、兵庫、和歌山（新宮）まで広域に配送されています。</p>
   </div>
 
-  <!-- 確認事項 -->
+  <!-- 9. ご提案 -->
   <div class="section">
-    <h2>9. 確認させていただきたい点</h2>
+    <h2>9. ご提案：週次配車プランナーの構築</h2>
+    <p>データ分析の結果、現在の62シートExcelを1つのシステムに置き換える<strong>「週次配車プランナー」</strong>の構築をご提案します。</p>
+
+    <h3>現在の課題と解決策</h3>
+    <table>
+      <tr><th>機能</th><th>現在の運用</th><th>新システム</th></tr>
+      <tr>
+        <td><strong>受注入力</strong></td>
+        <td>100列以上のExcelに手入力</td>
+        <td>シンプルな入力画面<br>（工場→届け先→台数）</td>
+      </tr>
+      <tr>
+        <td><strong>運送会社への<br>割り振り</strong></td>
+        <td>全体シートで1台ずつ手で数字を入力<br>（最も時間がかかる作業）</td>
+        <td><strong>AIが過去の実績パターンから自動提案</strong><br>担当者は結果を確認・微調整するだけ</td>
+      </tr>
+      <tr>
+        <td><strong>配車指示書</strong></td>
+        <td>運送会社別シートを印刷→FAX送付</td>
+        <td>ボタン1つでPDF生成・メール自動送信</td>
+      </tr>
+      <tr>
+        <td><strong>集計・レポート</strong></td>
+        <td>車数表・車数詳細シートで数式集計<br>（一部#REF!エラー発生中）</td>
+        <td>リアルタイムで自動集計</td>
+      </tr>
+    </table>
+
+    <h3>なぜAI自動提案が有効か</h3>
+    <ul>
+      <li><strong>パターンが安定している：</strong>データを見ると、ルート×運送会社の組み合わせはほぼ固定化されています。過去2年分の実績データからパターンを学習し、高精度な提案が可能です</li>
+      <li><strong>週次計画なので余裕がある：</strong>新築廃材回収（毎日150件のリアルタイム配車）と比べ、製品輸送は週単位の計画配車のため、AIの提案→人の確認→修正という流れが取りやすい構造です</li>
+      <li><strong>透明性の確保：</strong>AIが割り振りの根拠を記録するため、協力会社への配車の公平性・透明性を客観的に担保できます</li>
+    </ul>
+
+    <h3>システムイメージ</h3>
+    <div class="flow-container">
+      <span class="flow-step">工場からの<br>希望台数を<br>取り込み</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">受注入力<br>（シンプルな<br>入力画面）</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step" style="background: #c0392b;">AIが<br>運送会社を<br>自動提案</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">担当者が<br>確認・微調整</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">指示書を<br>自動生成<br>＆送信</span>
+    </div>
+    <p style="text-align: center; font-size: 9.5pt; color: #888; margin-top: -8px;">赤色のステップがAIによる自動化部分（現在最も時間がかかっている工程）</p>
+
+    <h3>技術構成</h3>
+    <p>新築廃材回収システムと同じ技術スタック（Googleスプレッドシート＋GAS＋Python）で構築します。普段お使いのExcelに近い操作感を維持しつつ、裏側でAIが最適な配車を提案する構成です。</p>
+  </div>
+
+  <!-- 10. 確認事項 -->
+  <div class="section">
+    <h2>10. 確認させていただきたい点</h2>
     <div class="check-box">
       <strong>以下の認識に相違がないか、ご確認をお願いいたします。</strong>
       <ol style="margin-top: 10px;">
